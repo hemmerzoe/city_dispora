@@ -32,6 +32,7 @@ public class SplashScreen extends AppCompatActivity {
         thread.start();
     }
 
+<<<<<<< HEAD
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -42,3 +43,15 @@ public class SplashScreen extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);}
     }
 }]
+=======
+ //   @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//        View decorView = getWindow().getDecorView();
+//        if (hasFocus) {
+//            decorView.setSystemUiVisibility(
+//                    View.SYSTEM_UI_FLAG_FULLSCREEN
+//                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);}
+//    }
+}
+>>>>>>> de76eb696c2686e0eb6f7c87fda2669c25fe7458
