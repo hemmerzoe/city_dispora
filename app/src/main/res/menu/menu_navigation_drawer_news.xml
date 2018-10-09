@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/grp_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_beranda"
+            android:icon="@drawable/ic_home"
+            android:title="Beranda" />
+        <item
+            android:id="@+id/nav_apotik"
+            android:icon="@drawable/ic_whatshot"
+            android:title="Apotik" />
+        <item
+            android:id="@+id/nav_wisata"
+            android:icon="@drawable/ic_schedule"
+            android:title="Destinasi Wisata" />
+        <item
+            android:id="@+id/nav_hotel"
+            android:icon="@drawable/ic_highlight"
+            android:title="Hotel" />
+        <item
+            android:id="@+id/nav_kuliner"
+            android:icon="@drawable/ic_highlight"
+            android:title="Kuliner" />
+        <item
+            android:id="@+id/nav_bank"
+            android:icon="@drawable/ic_highlight"
+            android:title="Perbankan" />
+        <item
+            android:id="@+id/nav_rs"
+            android:icon="@drawable/ic_highlight"
+            android:title="Rumah Sakit" />
+    </group>
+    <!--<group-->
+        <!--android:id="@+id/grp_2"-->
+        <!--android:checkableBehavior="none">-->
+        <!--<item-->
+            <!--android:id="@+id/nav_settings"-->
+            <!--android:icon="@drawable/ic_settings"-->
+            <!--android:title="Settings" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_help"-->
+            <!--android:icon="@drawable/ic_help"-->
+            <!--android:title="Help" />-->
+    <!--</group>-->
+
+</menu>
