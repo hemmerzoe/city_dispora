@@ -34,7 +34,8 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".MenuDrawerNews"></activity>
+        <activity android:name=".MenuDrawerNews" />
+        <activity android:name=".ProfileImageAppbar"></activity>
     </application>
 
 </manifest>

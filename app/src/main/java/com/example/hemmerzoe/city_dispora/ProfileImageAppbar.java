@@ -2,29 +2,32 @@ package com.example.hemmerzoe.city_dispora;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-public class MenuDrawerNews extends AppCompatActivity {
+import com.example.hemmerzoe.city_dispora.utils.Tools;
+
+public class ProfileImageAppbar extends AppCompatActivity {
     private ActionBar actionBar;
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_drawer_news);
+        setContentView(R.layout.activity_profile_image_appbar);
 
-        initToolbar();
         initNavigationMenu();
+        initToolbar();
+        initComponent();
     }
 
     private void initToolbar() {
@@ -35,6 +38,19 @@ public class MenuDrawerNews extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setTitle("Beranda");
         com.example.hemmerzoe.city_dispora.utils.Tools.setSystemBarColor(this);
+        //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar.setNavigationIcon(R.drawable.ic_menu);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setTitle("Profile");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void initComponent() {
+        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_1), R.drawable.image_5);
+        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_2), R.drawable.image_6);
+        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_3), R.drawable.image_7);
+        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_4), R.drawable.image_8);
+        Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_5), R.drawable.image_10);
     }
 
     private void initNavigationMenu() {
@@ -58,12 +74,12 @@ public class MenuDrawerNews extends AppCompatActivity {
                     // pilihan menu item navigasi akan menampilkan pesan toast klik kalian bisa menggantinya
                     //dengan intent activity
                     case R.id.nav_beranda:
-                        startActivity( new Intent(MenuDrawerNews.this,MenuDrawerNews.class));
+                        startActivity( new Intent(ProfileImageAppbar.this,MenuDrawerNews.class));
                         finish();
 //                        Toast.makeText(getApplicationContext(), "Beranda Telah Dipilih", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.nav_apotik:
-                        startActivity( new Intent(MenuDrawerNews.this,ProfileImageAppbar.class));
+                        startActivity( new Intent(ProfileImageAppbar.this,ProfileImageAppbar.class));
                         finish();
 //                        Toast.makeText(getApplicationContext(),"Profil Telah Dipilih",Toast.LENGTH_SHORT).show();
                         return true;
@@ -94,4 +110,21 @@ public class MenuDrawerNews extends AppCompatActivity {
         // open drawer at start
 //        drawer.openDrawer(GravityCompat.START);
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_search_setting, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == android.R.id.home) {
+//            finish();
+//        } else {
+//            Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
 }
