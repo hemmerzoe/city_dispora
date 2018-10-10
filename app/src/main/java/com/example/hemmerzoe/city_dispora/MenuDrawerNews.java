@@ -68,8 +68,10 @@ public class MenuDrawerNews extends AppCompatActivity {
 //                        Toast.makeText(getApplicationContext(),"Profil Telah Dipilih",Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.nav_wisata:
-                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
-                        actionBar.setTitle(item.getTitle());
+//                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
+//                        actionBar.setTitle(item.getTitle());
+                        startActivity( new Intent(MenuDrawerNews.this,GridList.class));
+                        finish();
                         return true;
                     case R.id.nav_hotel:
                         Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
