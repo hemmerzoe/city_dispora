@@ -119,9 +119,13 @@ public class ProfileImageAppbar extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
+<<<<<<< HEAD
             Intent grid = new Intent(this, GridList.class);
             startActivity(grid);
 //            menu2.initNavigationMenu();
+=======
+            Toast.makeText(getApplicationContext(), " Selected", Toast.LENGTH_SHORT).show();
+>>>>>>> fde3378f6b3ab8023521a8177b277e2d7ce458ac
         } else {
             Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
         }
