@@ -15,17 +15,19 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.hemmerzoe.city_dispora.utils.Tools;
+import com.example.hemmerzoe.city_dispora.MenuDrawerNews;
 
 public class ProfileImageAppbar extends AppCompatActivity {
     private ActionBar actionBar;
     private Toolbar toolbar;
+    public  MenuDrawerNews menu2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_image_appbar);
 
-        initNavigationMenu();
+        //menu2.initNavigationMenu();
         initToolbar();
         initComponent();
     }
@@ -35,14 +37,11 @@ public class ProfileImageAppbar extends AppCompatActivity {
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
+        // actionBar.setHomeButtonEnabled(true);
         actionBar.setTitle("Beranda");
-        com.example.hemmerzoe.city_dispora.utils.Tools.setSystemBarColor(this);
-        //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setNavigationIcon(R.drawable.ic_menu);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setTitle("Profile");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Tools.setSystemBarColor(this);
+//        menu2.initNavigationMenu();
+
     }
 
     private void initComponent() {
@@ -53,78 +52,80 @@ public class ProfileImageAppbar extends AppCompatActivity {
         Tools.displayImageOriginal(this, (ImageView) findViewById(R.id.image_5), R.drawable.image_10);
     }
 
-    private void initNavigationMenu() {
-        NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
-            public void onDrawerOpened(View drawerView) {
+//    private void initNavigationMenu() {
+//        NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+//        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+//            public void onDrawerOpened(View drawerView) {
+//
+//                super.onDrawerOpened(drawerView);
+//            }
+//        };
+//        drawer.setDrawerListener(toggle);
+//        toggle.syncState();
+//        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(final MenuItem item) {
+////                Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
+////                actionBar.setTitle(item.getTitle());
+//                drawer.closeDrawers();
+//                switch (item.getItemId()){
+//                    // pilihan menu item navigasi akan menampilkan pesan toast klik kalian bisa menggantinya
+//                    //dengan intent activity
+//                    case R.id.nav_beranda:
+//                        startActivity( new Intent(ProfileImageAppbar.this,MenuDrawerNews.class));
+//                        finish();
+////                        Toast.makeText(getApplicationContext(), "Beranda Telah Dipilih", Toast.LENGTH_SHORT).show();
+//                        return true;
+//                    case R.id.nav_apotik:
+//                        startActivity( new Intent(ProfileImageAppbar.this,ProfileImageAppbar.class));
+//                        finish();
+////                        Toast.makeText(getApplicationContext(),"Profil Telah Dipilih",Toast.LENGTH_SHORT).show();
+//                        return true;
+//                    case R.id.nav_wisata:
+//                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
+//                        actionBar.setTitle(item.getTitle());
+//                        return true;
+//                    case R.id.nav_hotel:
+//                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
+//                        actionBar.setTitle(item.getTitle());
+//                        return true;
+//                    case R.id.nav_kuliner:
+//                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
+//                        actionBar.setTitle(item.getTitle());
+//                        return true;
+//                    case R.id.nav_bank:
+//                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
+//                        actionBar.setTitle(item.getTitle());
+//                        return true;
+//                    default:
+//                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
+//                        actionBar.setTitle(item.getTitle());
+//                        return true;
+//                }
+//            }
+//        });
+//
+//        // open drawer at start
+////        drawer.openDrawer(GravityCompat.START);
+//    }
 
-                super.onDrawerOpened(drawerView);
-            }
-        };
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(final MenuItem item) {
-//                Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
-//                actionBar.setTitle(item.getTitle());
-                drawer.closeDrawers();
-                switch (item.getItemId()){
-                    // pilihan menu item navigasi akan menampilkan pesan toast klik kalian bisa menggantinya
-                    //dengan intent activity
-                    case R.id.nav_beranda:
-                        startActivity( new Intent(ProfileImageAppbar.this,MenuDrawerNews.class));
-                        finish();
-//                        Toast.makeText(getApplicationContext(), "Beranda Telah Dipilih", Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.nav_apotik:
-                        startActivity( new Intent(ProfileImageAppbar.this,ProfileImageAppbar.class));
-                        finish();
-//                        Toast.makeText(getApplicationContext(),"Profil Telah Dipilih",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.nav_wisata:
-                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
-                        actionBar.setTitle(item.getTitle());
-                        return true;
-                    case R.id.nav_hotel:
-                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
-                        actionBar.setTitle(item.getTitle());
-                        return true;
-                    case R.id.nav_kuliner:
-                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
-                        actionBar.setTitle(item.getTitle());
-                        return true;
-                    case R.id.nav_bank:
-                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
-                        actionBar.setTitle(item.getTitle());
-                        return true;
-                    default:
-                        Toast.makeText(getApplicationContext(), item.getTitle() + " Selected", Toast.LENGTH_SHORT).show();
-                        actionBar.setTitle(item.getTitle());
-                        return true;
-                }
-            }
-        });
-
-        // open drawer at start
-//        drawer.openDrawer(GravityCompat.START);
-    }
-
-//    @Override
+    //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        getMenuInflater().inflate(R.menu.menu_search_setting, menu);
 //        return true;
 //    }
 //
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() == android.R.id.home) {
-//            finish();
-//        } else {
-//            Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            Intent grid = new Intent(this, GridList.class);
+            startActivity(grid);
+//            menu2.initNavigationMenu();
+        } else {
+            Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

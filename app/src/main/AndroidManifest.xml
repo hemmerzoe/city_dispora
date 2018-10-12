@@ -36,7 +36,6 @@
             android:screenOrientation="portrait" />
         <activity android:name=".MenuDrawerNews" />
         <activity android:name=".ProfileImageAppbar"></activity>
-        <activity android:name=".SliderImage"></activity>
         <activity android:name=".GridList"></activity>
     </application>
 
