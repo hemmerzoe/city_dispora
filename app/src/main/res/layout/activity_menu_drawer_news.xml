@@ -28,7 +28,12 @@
         <include layout="@layout/include_drawer_content" />
 
     </android.support.design.widget.CoordinatorLayout>
+    <FrameLayout
+        android:id="@+id/fragment_contain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </FrameLayout>
 
     <!--navigation drawer menu-->
     <android.support.design.widget.NavigationView
@@ -41,5 +46,7 @@
         app:itemIconTint="@color/grey_40"
         app:itemTextColor="@color/grey_90"
         app:menu="@menu/menu_navigation_drawer_news" />
+
+
 
 </android.support.v4.widget.DrawerLayout>
