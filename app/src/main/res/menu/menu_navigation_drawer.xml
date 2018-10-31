@@ -6,11 +6,11 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_beranda"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/logo_beranda"
             android:title="Beranda" />
         <item
             android:id="@+id/nav_apotik"
-            android:icon="@drawable/ic_whatshot"
+            android:icon="@drawable/logo_apotik"
             android:title="Apotik" />
         <item
             android:id="@+id/nav_wisata"
@@ -22,7 +22,7 @@
             android:title="Hotel" />
         <item
             android:id="@+id/nav_kuliner"
-            android:icon="@drawable/ic_highlight"
+            android:icon="@drawable/logo_kuliner"
             android:title="Kuliner" />
         <item
             android:id="@+id/nav_bank"
@@ -30,7 +30,7 @@
             android:title="Perbankan" />
         <item
             android:id="@+id/nav_rs"
-            android:icon="@drawable/ic_highlight"
+            android:icon="@drawable/logo_rs"
             android:title="Rumah Sakit" />
     </group>
     <!--<group-->

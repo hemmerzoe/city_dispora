@@ -92,5 +92,15 @@ public class AdapterGridView extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public interface OnLoadMoreListener {
         void onLoadMore(int current_page);
     }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 }
 

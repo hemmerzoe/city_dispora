@@ -1,21 +1,15 @@
 package com.example.hemmerzoe.city_dispora;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashscreen);
+        setContentView(R.layout.activity_splashscreen);
 
         Thread thread = new Thread(){
             public void run(){
@@ -24,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
                 } catch (InterruptedException e){
                     e.printStackTrace();
                 } finally {
-                    startActivity( new Intent(SplashScreen.this,MenuDrawerNews.class));
+                    startActivity( new Intent(SplashScreen.this,MainActivity.class));
                     finish();
                 }
             }

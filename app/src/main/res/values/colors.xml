@@ -313,6 +313,11 @@
     <color name="grey_800">#424242</color>
     <color name="grey_900">#212121</color>
     <color name="grey_1000">#1a1a1a</color>
+    <color name="black">#fbf6f6</color>
+    <color name="white">#fcfffe</color>
+    <color name="colorForeground">#fafafa</color>
+    <color name="text_color_primary">#ddfefcfc</color>
+    <color name="foreground_material_light">@android:color/white</color>
 
 
     <!--for random color generator -->

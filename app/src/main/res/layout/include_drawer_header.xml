@@ -62,7 +62,6 @@
                     android:layout_marginRight="@dimen/spacing_medium"
                     android:tint="@color/grey_10"
                     app:srcCompat="@drawable/ic_location" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

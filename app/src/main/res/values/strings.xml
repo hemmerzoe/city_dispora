@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Aplikasi</string>
+    <string name="app_name">Dispora Apps</string>
 
     <!--=== activity Splash ==================================================================== -->
     <string name="splash_welcome_text">WELCOME</string>
-    <string name="splash_desc_text">Browse all the interesting place using The City app</string>
+    <string name="splash_desc_text">Aplikasi Smart City Kota Pasuruan</string>
 
     <!-- ==================== OTHERS STRING ==================================================== -->
     <string name="action_settings">Settings</string>
@@ -18,12 +18,16 @@
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         AIzaSyCbNPy5hqDEQFNNRXXXXXXXXXXXXXXXXXXX
     </string>
+    <string name="map_title">Map</string>
+    <string name="map_view">VIEW</string>
+    <string name="map_navigate">NAVIGATE</string>
 
     <string name="step_of">Step %1$d of %2$d</string>
     <string name="section_format">Section : %1$d</string>
 
     <string name="about_text">The best android implementation of material UI components. This app implemented based on Google Design Guidelines.
     </string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

@@ -21,7 +21,8 @@ public class DataGenerator {
 
     public static int randInt(int max) {
         int min = 0;
-        return r.nextInt((max - min) + 1) + min;
+//        return r.nextInt(1);
+        return r.nextInt((max - min) + 0) + min;
     }
 
     public static List<Image> getImageDate(Context ctx) {

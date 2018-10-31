@@ -5,7 +5,7 @@
     android:id="@+id/lyt_parent"
     style="@style/RippleStyleBlack"
     android:layout_width="match_parent"
-    android:layout_height="240dp">
+    android:layout_height="200dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,14 +22,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/image_2" />
+                android:src="@drawable/image_15" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/blue_grey_800"
+            android:background="@color/light_blue_700"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="@dimen/spacing_large">

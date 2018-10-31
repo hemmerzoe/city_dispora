@@ -49,13 +49,13 @@ public class GridList  extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         // untuk grid listnya
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        recyclerView.addItemDecoration(new SpacingItemDecoration(2, Tools.dpToPx(this, 3), true));
+        recyclerView.addItemDecoration(new SpacingItemDecoration(1, Tools.dpToPx(this, 3), true));
         recyclerView.setHasFixedSize(true);
 
         List<Image> items = DataGenerator.getImageDate(this);
         items.addAll(DataGenerator.getImageDate(this));
-        items.addAll(DataGenerator.getImageDate(this));
-        items.addAll(DataGenerator.getImageDate(this));
+       // items.addAll(DataGenerator.getImageDate(this));
+     //   items.addAll(DataGenerator.getImageDate(this));
 
         //set data and list adapter
         mAdapter = new AdapterGridView(this, items);

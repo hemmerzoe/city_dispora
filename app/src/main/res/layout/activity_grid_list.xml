@@ -14,7 +14,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/pink_100"
+            android:background="@color/blue_700"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:contentInsetStartWithNavigation="0dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -27,6 +27,7 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         android:scrollingCache="true" />
+
 
 </LinearLayout>
 
