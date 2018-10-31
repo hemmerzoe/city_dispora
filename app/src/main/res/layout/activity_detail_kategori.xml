@@ -329,88 +329,26 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:cardCornerRadius="3dp"
+                            app:cardCornerRadius="1dp"
                             app:cardElevation="2dp">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:background="@color/brown_100"
                                 android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/info_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingTop="5dp"
-                                android:paddingBottom="5dp"
-                                android:paddingLeft="5dp"
-                                android:text="Anisah denis sedang berusaha"/>
                             <fragment
                                 android:id="@+id/mapPlaces"
-                                android:name="com.google.android.gms.maps.MapFragment"
+                                android:name="com.google.android.gms.maps.SupportMapFragment"
                                 android:layout_width="match_parent"
-                                android:layout_height="150dp"
+                                android:layout_height="160dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:layout_marginLeft="@dimen/spacing_large"
-                                android:layout_marginRight="@dimen/spacing_large" />
+                               android:layout_margin="5dp"
+                                tools:context=".Detail_kategori"/>
 
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:layout_marginTop="@dimen/spacing_middle"
-                                    android:background="@color/red_A100" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:background="?attr/selectableItemBackground"
-                                        android:clickable="true"
-                                        android:gravity="center"
-                                        android:orientation="horizontal"
-                                        android:padding="@dimen/spacing_medium">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="VIEW"
-                                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-                                            android:textColor="@color/colorPrimary" />
-
-                                    </LinearLayout>
-
-                                    <View
-                                        android:layout_width="1dp"
-                                        android:layout_height="match_parent"
-                                        android:background="@color/red_A100" />
-
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:background="?attr/selectableItemBackground"
-                                        android:clickable="true"
-                                        android:orientation="horizontal"
-                                        android:gravity="center"
-                                        android:padding="@dimen/spacing_medium">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="NAVIGATE"
-                                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-                                            android:textColor="@color/colorPrimary" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
                             </LinearLayout>
-
-
                         </android.support.v7.widget.CardView>
 
                     </LinearLayout>
