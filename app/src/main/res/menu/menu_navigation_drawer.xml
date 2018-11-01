@@ -14,11 +14,11 @@
             android:title="Apotik" />
         <item
             android:id="@+id/nav_wisata"
-            android:icon="@drawable/ic_schedule"
+            android:icon="@drawable/wisata"
             android:title="Destinasi Wisata" />
         <item
             android:id="@+id/nav_hotel"
-            android:icon="@drawable/ic_highlight"
+            android:icon="@drawable/hotel"
             android:title="Hotel" />
         <item
             android:id="@+id/nav_kuliner"
@@ -26,7 +26,7 @@
             android:title="Kuliner" />
         <item
             android:id="@+id/nav_bank"
-            android:icon="@drawable/ic_highlight"
+            android:icon="@drawable/bank"
             android:title="Perbankan" />
         <item
             android:id="@+id/nav_rs"

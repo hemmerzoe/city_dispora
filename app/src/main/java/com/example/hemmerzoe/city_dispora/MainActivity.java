@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
@@ -16,7 +15,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -33,9 +31,7 @@ import android.widget.Toast;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.example.hemmerzoe.city_dispora.Adapter.AdapterGridView;
-import com.example.hemmerzoe.city_dispora.Data.DataGenerator;
 import com.example.hemmerzoe.city_dispora.Model.Image;
-import com.example.hemmerzoe.city_dispora.Widget.SpacingItemDecoration;
 import com.example.hemmerzoe.city_dispora.utils.Tools;
 
 import java.util.ArrayList;
@@ -164,31 +160,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startAutoSlider(adapterImageSlider.getCount());
     }
 
-    private void initComponent2() {
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        // untuk grid listnya
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        recyclerView.addItemDecoration(new SpacingItemDecoration(2, Tools.dpToPx(this, 3), true));
-        recyclerView.setHasFixedSize(true);
-
-        List<Image> items = DataGenerator.getImageDate(this);
-        items.addAll(DataGenerator.getImageDate(this));
-        items.addAll(DataGenerator.getImageDate(this));
-        items.addAll(DataGenerator.getImageDate(this));
-
-        //set data and list adapter
-        mAdapter = new AdapterGridView(this, items);
-        recyclerView.setAdapter(mAdapter);
-
-        // on item list clicked
-        mAdapter.setOnItemClickListener(new AdapterGridView.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, Image obj, int position) {
-                Snackbar.make(parent_view, obj.name + " clicked", Snackbar.LENGTH_SHORT).show();
-            }
-        });
-    }
-
     private void addBottomDots(LinearLayout layout_dots, int size, int current) {
         ImageView[] dots = new ImageView[size];
 
@@ -249,40 +220,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (v.getId()){
             case R.id.but_apotik:
-                Kategori_fragment apotik= new Kategori_fragment();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.fragment_contain, apotik).commit();
-                actionBar.setTitle("Apotik");
+               Intent apotik = new Intent(this, MapsActivity.class);
+               startActivity(apotik);
+              //  actionBar.setTitle("Apotik");
                 break;
             case R.id.but_wisata:
-                Kategori_fragment wisata = new Kategori_fragment();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.fragment_contain, wisata).commit();
-                actionBar.setTitle("Wisata");
+                Intent wisata = new Intent(this, Detail_kategori.class);
+                startActivity(wisata);
+               // actionBar.setTitle("Wisata");
                 break;
             case R.id.but_hotel:
-                Kategori_fragment hotel = new Kategori_fragment();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.fragment_contain, hotel).commit();
-                actionBar.setTitle("Hotel");
+                Intent hotel = new Intent(this, Detail_kategori.class);
+                startActivity(hotel);
+//                actionBar.setTitle("Hotel");
                 break;
             case R.id.but_kuliner:
-                Kategori_fragment kuliner = new Kategori_fragment();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.fragment_contain, kuliner).commit();
-                actionBar.setTitle("kuliner");
+                Intent kuliner = new Intent(this, Detail_kategori.class);
+                startActivity(kuliner);
+//                actionBar.setTitle("kuliner");
                 break;
             case R.id.but_bank:
-                Kategori_fragment bank = new Kategori_fragment();
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.fragment_contain, bank).commit();
-                actionBar.setTitle("Perbankan");
+                Intent bank = new Intent(this, Detail_kategori.class);
+                startActivity(bank);
+//                actionBar.setTitle("Perbankan");
                 break;
              default:
-                 Kategori_fragment rs = new Kategori_fragment();
-                 transaction.addToBackStack(null);
-                 transaction.replace(R.id.fragment_contain, rs).commit();
-                 actionBar.setTitle("Rumah Sakit");
+                 Intent rs = new Intent(this, Detail_kategori.class);
+                 startActivity(rs);
+//                 actionBar.setTitle("Rumah Sakit");
                  break;
 
         }
@@ -419,10 +384,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         actionBar.setTitle("Perbankan");
                         return true;
                     default:
-                        Kategori_fragment kategori_fragment_6 = new Kategori_fragment();
-                        transaction.addToBackStack(null);
-                        transaction.replace(R.id.fragment_contain, kategori_fragment_6).commit();
-                        actionBar.setTitle("Rumah Sakit");
+//                        Kategori_fragment kategori_fragment_6 = new Kategori_fragment();
+//                        transaction.addToBackStack(null);
+//                        transaction.replace(R.id.fragment_contain, kategori_fragment_6).commit();
+//                        actionBar.setTitle("Rumah Sakit");
+                        Intent berita = new Intent(MainActivity.this, Detail_berita.class);
+                        startActivity(berita);
                         return true;
                 }
             }
