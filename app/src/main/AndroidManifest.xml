@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Detail_kategori" />
-         <activity android:name=".Detail_berita"></activity>
+        <!-- <activity android:name=".Detail_kategori" -->
         <!-- android:label="profile" -->
         <!-- android:parentActivityName=".GridList"></activity> -->
         <activity android:name=".GridList" />
