@@ -15,7 +15,7 @@ import retrofit.Retrofit;
  */
 
 public class ServiceGenerator {
-    private static String BASE_URL = "http://192.168.1.100/api_paskot/server/" ;
+    private static String BASE_URL = "http://192.168.1.101/api_paskot/server/" ;
 
     private ServiceGenerator(){}
 
