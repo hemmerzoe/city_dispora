@@ -46,7 +46,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="false"
         app:headerLayout="@layout/include_drawer_header"
-
+        app:itemIconTint="@color/light_blue_400"
         app:itemTextColor="@color/grey_90"
         app:menu="@menu/menu_navigation_drawer" />
 

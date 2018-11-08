@@ -33,17 +33,23 @@
             android:icon="@drawable/logo_rs"
             android:title="Rumah Sakit" />
     </group>
-    <!--<group-->
-        <!--android:id="@+id/grp_2"-->
-        <!--android:checkableBehavior="none">-->
-        <!--<item-->
-            <!--android:id="@+id/nav_settings"-->
-            <!--android:icon="@drawable/ic_settings"-->
-            <!--android:title="Settings" />-->
-        <!--<item-->
-            <!--android:id="@+id/nav_help"-->
-            <!--android:icon="@drawable/ic_help"-->
-            <!--android:title="Help" />-->
-    <!--</group>-->
-
+    <group
+        android:id="@+id/grp_2"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_berita"
+            android:icon="@drawable/ic_settings"
+            android:title="Berita" />
+        <item
+            android:id="@+id/nav_event"
+            android:icon="@drawable/ic_help"
+            android:title="Event" />
+    </group>
+    <group
+        android:id="@+id/grp_3"
+        android:checkableBehavior="none">]
+        <item
+            android:id="@+id/nav_berita"
+            android:title="Berita" />
+    </group>
 </menu>
