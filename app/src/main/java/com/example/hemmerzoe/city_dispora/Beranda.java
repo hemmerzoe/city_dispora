@@ -23,7 +23,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,9 +33,7 @@ import android.widget.Toast;
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.hemmerzoe.city_dispora.Adapter.AdapterGridView;
-import com.example.hemmerzoe.city_dispora.Adapter.BerandaAdapter;
-import com.example.hemmerzoe.city_dispora.Model.BerandaModel;
+import com.example.hemmerzoe.city_dispora.Adapter.KategoriAdapter;
 import com.example.hemmerzoe.city_dispora.Model.Image;
 import com.example.hemmerzoe.city_dispora.Response.BerandaResponse;
 import com.example.hemmerzoe.city_dispora.Retrofit.ApiService;
@@ -67,7 +64,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
     private Runnable runnable = null;
     private Handler handler = new Handler();
     private RecyclerView recyclerView;
-    private AdapterGridView mAdapter;
+    private KategoriAdapter mAdapter;
     private Toolbar toolbar_kategori;
     private NavigationView navigationView_kategori;
 
@@ -434,6 +431,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
 //                actionBar.setTitle(item.getTitle());
                 drawer.closeDrawers();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Bundle bundle = new Bundle();
                 switch (item.getItemId()){
                     // pilihan menu item navigasi akan menampilkan pesan toast klik kalian bisa menggantinya
                     //dengan intent activity
@@ -443,41 +441,57 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         return true;
                     case R.id.nav_apotik:
                         Kategori_fragment kategori_fragment_1 = new Kategori_fragment();
+//                        Bundle bundle = new Bundle();
+                        bundle.putString("key_idkategori", "1");
                         transaction.addToBackStack(null);
+                        kategori_fragment_1.setArguments(bundle);
                         transaction.replace(R.id.fragment_contain, kategori_fragment_1).commit();
                         actionBar.setTitle("Apotik");
                         return true;
                     case R.id.nav_wisata:
                         Kategori_fragment kategori_fragment_2 = new Kategori_fragment();
                         transaction.addToBackStack(null);
+                        bundle.putString("key_idkategori", "2");
+                        transaction.addToBackStack(null);
+                        kategori_fragment_2.setArguments(bundle);
                         transaction.replace(R.id.fragment_contain, kategori_fragment_2).commit();
                         actionBar.setTitle("Wisata");
                         return true;
                     case R.id.nav_hotel:
                         Kategori_fragment kategori_fragment_3 = new Kategori_fragment();
                         transaction.addToBackStack(null);
+                        bundle.putString("key_idkategori", "3");
+                        transaction.addToBackStack(null);
+                        kategori_fragment_3.setArguments(bundle);
                         transaction.replace(R.id.fragment_contain, kategori_fragment_3).commit();
                         actionBar.setTitle("Hotel");
                         return true;
                     case R.id.nav_kuliner:
                         Kategori_fragment kategori_fragment_4 = new Kategori_fragment();
                         transaction.addToBackStack(null);
+                        bundle.putString("key_idkategori", "4");
+                        transaction.addToBackStack(null);
+                        kategori_fragment_4.setArguments(bundle);
                         transaction.replace(R.id.fragment_contain, kategori_fragment_4).commit();
                         actionBar.setTitle("Kuliner");
                         return true;
                     case R.id.nav_bank:
                         Kategori_fragment kategori_fragment_5 = new Kategori_fragment();
                         transaction.addToBackStack(null);
+                        bundle.putString("key_idkategori", "5");
+                        transaction.addToBackStack(null);
+                        kategori_fragment_5.setArguments(bundle);
                         transaction.replace(R.id.fragment_contain, kategori_fragment_5).commit();
                         actionBar.setTitle("Perbankan");
                         return true;
                     default:
-//                        Kategori_fragment kategori_fragment_6 = new Kategori_fragment();
-//                        transaction.addToBackStack(null);
-//                        transaction.replace(R.id.fragment_contain, kategori_fragment_6).commit();
-//                        actionBar.setTitle("Rumah Sakit");
-                        Intent berita = new Intent(Beranda.this, Detail_berita.class);
-                        startActivity(berita);
+                        Kategori_fragment kategori_fragment_6 = new Kategori_fragment();
+                        transaction.addToBackStack(null);
+                        bundle.putString("key_idkategori", "6");
+                        transaction.addToBackStack(null);
+                        kategori_fragment_6.setArguments(bundle);
+                        transaction.replace(R.id.fragment_contain, kategori_fragment_6).commit();
+                        actionBar.setTitle("Perbankan");
                         return true;
                 }
             }
