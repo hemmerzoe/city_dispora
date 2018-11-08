@@ -38,7 +38,7 @@ public class Detail_berita extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            Intent berita_beranda = new Intent (Detail_berita.this, Beranda.class);
+            Intent berita_beranda = new Intent (Detail_berita.this, MainActivity.class);
             startActivity(berita_beranda);
             finish();
         } else {
