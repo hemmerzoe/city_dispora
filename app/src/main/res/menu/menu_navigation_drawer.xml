@@ -47,9 +47,8 @@
     </group>
     <group
         android:id="@+id/grp_3"
-        android:checkableBehavior="none">]
+        android:checkableBehavior="none">
         <item
-            android:id="@+id/nav_berita"
-            android:title="Berita" />
+            android:title="@diskominfo 2018"/>
     </group>
 </menu>

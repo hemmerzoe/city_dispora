@@ -442,8 +442,10 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         finish();
                         return true;
                     case R.id.nav_apotik:
-                        startActivity( new Intent(Beranda.this,Detail_kategori.class));
-                        finish();
+                        Kategori_fragment kategori_fragment_1 = new Kategori_fragment();
+                        transaction.addToBackStack(null);
+                        transaction.replace(R.id.fragment_contain, kategori_fragment_1).commit();
+                        actionBar.setTitle("Apotik");
                         return true;
                     case R.id.nav_wisata:
                         Kategori_fragment kategori_fragment_2 = new Kategori_fragment();

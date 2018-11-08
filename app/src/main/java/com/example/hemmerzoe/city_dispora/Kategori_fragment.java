@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.hemmerzoe.city_dispora.Data.DataGenerator;
 import com.example.hemmerzoe.city_dispora.Model.Image;
 import com.example.hemmerzoe.city_dispora.Widget.SpacingItemDecoration;
 import com.example.hemmerzoe.city_dispora.utils.Tools;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -56,9 +58,10 @@ public class Kategori_fragment extends Fragment{
             mAdapter.setOnItemClickListener(new AdapterGridView.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, Image obj, int position) {
+                    Log.d("coba2 berhasil",obj.name );
                     //Snackbar.make(root_view, obj.name + " clicked", Snackbar.LENGTH_SHORT).show();
-                    Intent in = new Intent(getActivity(), Detail_kategori.class);
-                    startActivity(in);
+//                    Intent in = new Intent(getActivity(), Detail_berita.class);
+//                    startActivity(in);
                 }
             });
             return parent_view;
