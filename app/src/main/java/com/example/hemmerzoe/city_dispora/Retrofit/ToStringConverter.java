@@ -8,13 +8,6 @@ import java.io.IOException;
 
 import retrofit.Converter;
 
-;
-
-
-/**
- * Created by hemmerzoe on 16/10/2017.
- */
-
 public final class ToStringConverter implements Converter<String> {
     @Override
     public String fromBody(ResponseBody body) throws IOException {

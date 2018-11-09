@@ -14,11 +14,11 @@
             android:title="Apotik" />
         <item
             android:id="@+id/nav_wisata"
-            android:icon="@drawable/ic_schedule"
+            android:icon="@drawable/wisata"
             android:title="Destinasi Wisata" />
         <item
             android:id="@+id/nav_hotel"
-            android:icon="@drawable/ic_highlight"
+            android:icon="@drawable/hotel"
             android:title="Hotel" />
         <item
             android:id="@+id/nav_kuliner"
@@ -26,10 +26,14 @@
             android:title="Kuliner" />
         <item
             android:id="@+id/nav_bank"
-            android:icon="@drawable/ic_highlight"
+            android:icon="@drawable/bank"
             android:title="Perbankan" />
         <item
             android:id="@+id/nav_rs"
+            android:icon="@drawable/logo_rs"
+            android:title="Rumah Sakit" />
+        <item
+            android:id="@+id/nav_berita3"
             android:icon="@drawable/logo_rs"
             android:title="Rumah Sakit" />
     </group>
@@ -38,11 +42,11 @@
         android:checkableBehavior="none">
         <item
             android:id="@+id/nav_berita"
-            android:icon="@drawable/ic_settings"
+            android:icon="@drawable/berita"
             android:title="Berita" />
         <item
             android:id="@+id/nav_event"
-            android:icon="@drawable/ic_help"
+            android:icon="@drawable/event"
             android:title="Event" />
     </group>
     <group

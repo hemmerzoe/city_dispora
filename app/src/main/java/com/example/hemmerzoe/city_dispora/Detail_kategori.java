@@ -147,22 +147,22 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
                     actionBar.setTitle(model.detailkategori.get(0).nama_detail);
 
                     if(model.detailkategori.get(0).id_kategori.equals("1")){
-                        url = "http://192.168.1.100/webcity_dispora/_upload/apotik/"+model.gambar.get(0).nama_gambar;
+                        url = "http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("2")){
-                        url = "http://192.168.1.100/webcity_dispora/_upload/wisata/"+model.gambar.get(0).nama_gambar;
+                        url = "http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("3")){
-                        url = "http://192.168.1.100/webcity_dispora/_upload/hotel/"+model.gambar.get(0).nama_gambar;
+                        url = "http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("4")){
-                        url = "http://192.168.1.100/webcity_dispora/_upload/kuliner/"+model.gambar.get(0).nama_gambar;
+                        url = "http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("5")){
-                        url = "http://192.168.1.100/webcity_dispora/_upload/perbankan/"+model.gambar.get(0).nama_gambar;
+                        url = "http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("6")){
-                        url = "http://192.168.1.100/webcity_dispora/_upload/rumahsakit/"+model.gambar.get(0).nama_gambar;
+                        url = "http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(0).nama_gambar;
                     }
 
 

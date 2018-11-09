@@ -216,6 +216,16 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                     startActivity(bank);
                     break;
                 }
+            case R.id.but_rs:
+                if(id_rs != null) {
+                    Intent rs = new Intent(this, Detail_kategori.class);
+                    rs.putExtra("key_iddetailkategori", id_rs);
+//                    rs.putExtra("latitude",latitutde6);
+//                    rs.putExtra("longitude",longitude6);
+//                    rs.putExtra("alamat",alamat6);
+                    startActivity(rs);
+                    break;
+                }
             default:
                 if(id_rs != null) {
                     Intent rs = new Intent(this, Detail_kategori.class);
@@ -471,13 +481,19 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         transaction.replace(R.id.fragment_contain, kategori_fragment_5).commit();
                         actionBar.setTitle("Perbankan");
                         return true;
-                    default:
-//                        Kategori_fragment kategori_fragment_6 = new Kategori_fragment();
-//                        transaction.addToBackStack(null);
-//                        transaction.replace(R.id.fragment_contain, kategori_fragment_6).commit();
-//                        actionBar.setTitle("Rumah Sakit");
-                        Intent berita = new Intent(Beranda.this, Detail_berita.class);
+                    case R.id.nav_rs:
+                        Kategori_fragment kategori_fragment_6 = new Kategori_fragment();
+                        transaction.addToBackStack(null);
+                        transaction.replace(R.id.fragment_contain, kategori_fragment_6).commit();
+                        actionBar.setTitle("Rumah Sakit");
+                        return true;
+                    case R.id.nav_berita:
+                        Intent berita = new Intent(Beranda.this, Activity_daftar_berita.class);
                         startActivity(berita);
+                        return true;
+                    default:
+                        Intent event = new Intent(Beranda.this, Detail_berita.class);
+                        startActivity(event);
                         return true;
                 }
             }
@@ -510,12 +526,12 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                     Log.d("coba error", new Gson().toJson(response.body()));
                 }
                 if (!model.error) {
-//                    Toast.makeText(Beranda.this, new Gson().toJson(response.body()), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(Beranda.this, new Gson().toJson(response.body()), Toast.LENGTH_SHORT).show();
                     if(new Gson().toJson(response.body().apotik).length() != 2){
                         tv_apotik.setText(model.apotik.get(0).nama_detail);
                         tv_tglapotik.setText(model.apotik.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://192.168.1.100/webcity_dispora/_upload/apotik/"+model.apotik.get(0).nama_gambar)
+                                .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.apotik.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -529,7 +545,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_wisata.setText(model.wisata.get(0).nama_detail);
                         tv_tglwisata.setText(model.wisata.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://192.168.1.100/webcity_dispora/_upload/wisata/"+model.wisata.get(0).nama_gambar)
+                                .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.wisata.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -543,7 +559,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_hotel.setText(model.hotel.get(0).nama_detail);
                         tv_tglhotel.setText(model.hotel.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://192.168.1.100/webcity_dispora/_upload/hotel/"+model.hotel.get(0).nama_gambar)
+                                .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.hotel.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -557,7 +573,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_kuliner.setText(model.kuliner.get(0).nama_detail);
                         tv_tglkuliner.setText(model.kuliner.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://192.168.1.100/webcity_dispora/_upload/kuliner/"+model.kuliner.get(0).nama_gambar)
+                                .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.kuliner.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -571,7 +587,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_bank.setText(model.perbankan.get(0).nama_detail);
                         tv_tglbank.setText(model.perbankan.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://192.168.1.100/webcity_dispora/_upload/perbankan/"+model.perbankan.get(0).nama_gambar)
+                                .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.perbankan.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -585,7 +601,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_rs.setText(model.rumahsakit.get(0).nama_detail);
                         tv_tglrs.setText(model.rumahsakit.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://192.168.1.100/webcity_dispora/_upload/rumahsakit/"+model.rumahsakit.get(0).nama_gambar)
+                                .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.rumahsakit.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)

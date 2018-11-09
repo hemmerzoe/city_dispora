@@ -10,12 +10,9 @@ import java.util.concurrent.TimeUnit;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
-/**
- * Created by hemmerzoe on 16/10/2017.
- */
 
 public class ServiceGenerator {
-    private static String BASE_URL = "http://192.168.1.101/api_paskot/server/" ;
+    public static final String BASE_URL = "http://smart.pasuruankota.go.id/api/server/" ;
 
     private ServiceGenerator(){}
 
