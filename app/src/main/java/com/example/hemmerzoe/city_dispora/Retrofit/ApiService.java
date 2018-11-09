@@ -2,6 +2,7 @@ package com.example.hemmerzoe.city_dispora.Retrofit;
 
 import com.example.hemmerzoe.city_dispora.Response.BerandaResponse;
 import com.example.hemmerzoe.city_dispora.Response.DetailKategoriResponse;
+import com.example.hemmerzoe.city_dispora.Response.ListKategoriResponse;
 
 import retrofit.Call;
 import retrofit.http.GET;
@@ -23,6 +24,9 @@ public interface ApiService {
 
     @GET("detailkategori")
     Call<DetailKategoriResponse> detailkategoriRequest(@Query("id_detailkategori") String id_detailkategori);
+
+    @GET("listkategori")
+    Call<ListKategoriResponse> listkategoriRequest(@Query("id_kategori") String id_kategori);
 
 //    @FormUrlEncoded
 //    @POST("registrasipengguna")
