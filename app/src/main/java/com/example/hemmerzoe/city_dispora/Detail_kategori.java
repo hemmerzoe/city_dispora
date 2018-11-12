@@ -49,6 +49,7 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
     private ImageView iv_kategori;
     private Toolbar toolbar;
     public Beranda menu2;
+    private ImageView iv_foto,iv_foto2,iv_foto3,iv_foto4,iv_foto5;
     public GoogleMap mMap;
     public String nama_marker;
 //    private Double latitude;
@@ -66,6 +67,13 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
         tv_tgl          = findViewById(R.id.tgl_kategori);
         tv_alamat       = findViewById(R.id.alamat_kategori);
         iv_kategori     = findViewById(R.id.gambar_kategori);
+
+        //        foto
+        iv_foto        = findViewById(R.id.image_1);
+        iv_foto2        = findViewById(R.id.image_2);
+        iv_foto3        = findViewById(R.id.image_3);
+        iv_foto4        = findViewById(R.id.image_4);
+        iv_foto5        = findViewById(R.id.image_5);
 
 
         DataDetailKategori(bundle.getString("key_iddetailkategori"));
@@ -147,21 +155,303 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
                     actionBar.setTitle(model.detailkategori.get(0).nama_detail);
 
                     if(model.detailkategori.get(0).id_kategori.equals("1")){
+                        for (int i=0; i < model.gambar.size();i++){
+                            if (i == 0){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(0).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto);
+                                iv_foto.setVisibility(iv_foto.VISIBLE);
+                            }
+                            if (i == 1){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(1).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto2);
+                                iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                            }
+                            if (i == 2){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(2).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto3);
+                                iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                            }
+                            if (i == 3){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(3).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto4);
+                                iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                            }
+                            if (i == 4){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(4).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto5);
+                                iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                            }
+                        }
                         url = "http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("2")){
+                        for (int i=0; i < model.gambar.size();i++){
+                            if (i == 0){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(0).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto);
+                                iv_foto.setVisibility(iv_foto.VISIBLE);
+                            }
+                            if (i == 1){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(1).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto2);
+                                iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                            }
+                            if (i == 2){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(2).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto3);
+                                iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                            }
+                            if (i == 3){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(3).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto4);
+                                iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                            }
+                            if (i == 4){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(4).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto5);
+                                iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                            }
+                        }
                         url = "http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("3")){
+                        for (int i=0; i < model.gambar.size();i++){
+                            if (i == 0){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(0).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto);
+                                iv_foto.setVisibility(iv_foto.VISIBLE);
+                            }
+                            if (i == 1){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(1).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto2);
+                                iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                            }
+                            if (i == 2){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(2).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto3);
+                                iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                            }
+                            if (i == 3){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(3).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto4);
+                                iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                            }
+                            if (i == 4){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(4).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto5);
+                                iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                            }
+                        }
                         url = "http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("4")){
+                        for (int i=0; i < model.gambar.size();i++){
+                            if (i == 0){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(0).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto);
+                                iv_foto.setVisibility(iv_foto.VISIBLE);
+                            }
+                            if (i == 1){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(1).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto2);
+                                iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                            }
+                            if (i == 2){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(2).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto3);
+                                iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                            }
+                            if (i == 3){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(3).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto4);
+                                iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                            }
+                            if (i == 4){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(4).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto5);
+                                iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                            }
+                        }
                         url = "http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("5")){
+                        for (int i=0; i < model.gambar.size();i++){
+                            if (i == 0){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(0).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto);
+                                iv_foto.setVisibility(iv_foto.VISIBLE);
+                            }
+                            if (i == 1){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(1).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto2);
+                                iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                            }
+                            if (i == 2){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(2).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto3);
+                                iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                            }
+                            if (i == 3){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(3).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto4);
+                                iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                            }
+                            if (i == 4){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(4).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto5);
+                                iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                            }
+                        }
                         url = "http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("6")){
+                        for (int i=0; i < model.gambar.size();i++){
+                            if (i == 0){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(0).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto);
+                                iv_foto.setVisibility(iv_foto.VISIBLE);
+                            }
+                            if (i == 1){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(1).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto2);
+                                iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                            }
+                            if (i == 2){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(2).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto3);
+                                iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                            }
+                            if (i == 3){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(3).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto4);
+                                iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                            }
+                            if (i == 4){
+                                Glide.with(Detail_kategori.this)
+                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(4).nama_gambar)
+                                        .fitCenter() // menyesuaikan ukuran imageview
+                                        .crossFade() // animasi
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                        .into(iv_foto5);
+                                iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                            }
+                        }
                         url = "http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(0).nama_gambar;
                     }
 

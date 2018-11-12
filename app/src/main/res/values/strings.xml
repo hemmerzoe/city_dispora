@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dispora Apps</string>
+    <string name="app_name">Smartcity Apps</string>
 
     <!--=== activity Splash ==================================================================== -->
     <string name="splash_welcome_text">WELCOME</string>

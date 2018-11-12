@@ -32,10 +32,6 @@
             android:id="@+id/nav_rs"
             android:icon="@drawable/logo_rs"
             android:title="Rumah Sakit" />
-        <item
-            android:id="@+id/nav_berita3"
-            android:icon="@drawable/logo_rs"
-            android:title="Rumah Sakit" />
     </group>
     <group
         android:id="@+id/grp_2"

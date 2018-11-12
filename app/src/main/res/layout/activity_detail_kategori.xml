@@ -260,6 +260,7 @@
                                         android:layout_height="90dp"
                                         android:layout_marginEnd="@dimen/spacing_medium"
                                         android:layout_marginRight="@dimen/spacing_medium"
+                                        android:visibility="gone"
                                         android:scaleType="centerCrop"
                                         android:src="@color/grey_20" />
 
@@ -269,6 +270,7 @@
                                         android:layout_height="90dp"
                                         android:layout_marginEnd="@dimen/spacing_medium"
                                         android:layout_marginRight="@dimen/spacing_medium"
+                                        android:visibility="gone"
                                         android:scaleType="centerCrop"
                                         android:src="@color/grey_20" />
 
@@ -278,6 +280,7 @@
                                         android:layout_height="90dp"
                                         android:layout_marginEnd="@dimen/spacing_medium"
                                         android:layout_marginRight="@dimen/spacing_medium"
+                                        android:visibility="gone"
                                         android:scaleType="centerCrop"
                                         android:src="@color/grey_20" />
 
@@ -286,6 +289,7 @@
                                         android:layout_width="90dp"
                                         android:layout_height="90dp"
                                         android:layout_marginEnd="@dimen/spacing_medium"
+                                        android:visibility="gone"
                                         android:layout_marginRight="@dimen/spacing_medium"
                                         android:scaleType="centerCrop"
                                         android:src="@color/grey_20" />
@@ -298,6 +302,7 @@
                                         android:layout_marginRight="@dimen/spacing_medium"
                                         android:scaleType="centerCrop"
                                         android:src="@color/grey_20"
+                                        android:visibility="gone"
                                         android:layout_above="@id/card_view"/>
                                     <!--<TextView-->
                                         <!--android:layout_width="match_parent"-->

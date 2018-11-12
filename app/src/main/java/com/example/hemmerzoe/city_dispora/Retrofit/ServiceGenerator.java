@@ -12,7 +12,7 @@ import retrofit.Retrofit;
 
 
 public class ServiceGenerator {
-    public static final String BASE_URL = "http://smart.pasuruankota.go.id/api/server/" ;
+    public static final String BASE_URL = "http://data.pasuruankota.go.id/dispora/server/" ;
 
     private ServiceGenerator(){}
 

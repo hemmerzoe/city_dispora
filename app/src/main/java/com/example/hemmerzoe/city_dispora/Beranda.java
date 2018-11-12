@@ -494,27 +494,17 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         transaction.replace(R.id.fragment_contain, kategori_fragment_5).commit();
                         actionBar.setTitle("Perbankan");
                         return true;
-<<<<<<< HEAD
                     case R.id.nav_rs:
                         Kategori_fragment kategori_fragment_6 = new Kategori_fragment();
                         transaction.addToBackStack(null);
+                        bundle.putString("key_idkategori", "6");
+                        kategori_fragment_6.setArguments(bundle);
                         transaction.replace(R.id.fragment_contain, kategori_fragment_6).commit();
                         actionBar.setTitle("Rumah Sakit");
                         return true;
                     case R.id.nav_berita:
                         Intent berita = new Intent(Beranda.this, Activity_daftar_berita.class);
                         startActivity(berita);
-=======
-                    default:
-                        Kategori_fragment kategori_fragment_6 = new Kategori_fragment();
-                        transaction.addToBackStack(null);
-                        bundle.putString("key_idkategori", "6");
-                        transaction.addToBackStack(null);
-                        kategori_fragment_6.setArguments(bundle);
-                        transaction.replace(R.id.fragment_contain, kategori_fragment_6).commit();
-                        actionBar.setTitle("Perbankan");
->>>>>>> 570e0f9662e33d75e349b4153bb4f1e323c32c97
-                        return true;
                     default:
                         Intent event = new Intent(Beranda.this, Detail_berita.class);
                         startActivity(event);
@@ -561,9 +551,6 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(iv_apotik);
                         id_apotik   = model.apotik.get(0).id_detailkategori;
-//                        alamat      = model.apotik.get(0).alamat;
-//                        latitutde   = model.apotik.get(0).latitude;
-//                        longitude   = model.apotik.get(0).longitude;
                     }
                     if(new Gson().toJson(response.body().wisata).length() != 2){
                         tv_wisata.setText(model.wisata.get(0).nama_detail);
@@ -575,9 +562,6 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(iv_wisata);
                         id_wisata   = model.wisata.get(0).id_detailkategori;
-//                        alamat2     = model.wisata.get(0).alamat;
-//                        latitutde2  = model.wisata.get(0).latitude;
-//                        longitude2  = model.wisata.get(0).longitude;
                     }
                     if(new Gson().toJson(response.body().hotel).length() != 2){
                         tv_hotel.setText(model.hotel.get(0).nama_detail);
@@ -589,9 +573,6 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(iv_hotel);
                         id_hotel    = model.hotel.get(0).id_detailkategori;
-//                        alamat3     = model.hotel.get(0).alamat;
-//                        latitutde3  = model.hotel.get(0).latitude;
-//                        longitude3  = model.hotel.get(0).longitude;
                     }
                     if(new Gson().toJson(response.body().kuliner).length() != 2){
                         tv_kuliner.setText(model.kuliner.get(0).nama_detail);
@@ -603,9 +584,6 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(iv_kuliner);
                         id_kuliner  = model.kuliner.get(0).id_detailkategori;
-//                        alamat4     = model.kuliner.get(0).alamat;
-//                        latitutde4  = model.kuliner.get(0).latitude;
-//                        longitude4  = model.kuliner.get(0).longitude;
                     }
                     if(new Gson().toJson(response.body().perbankan).length() != 2){
                         tv_bank.setText(model.perbankan.get(0).nama_detail);
@@ -617,9 +595,6 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(iv_bank);
                         id_bank     = model.perbankan.get(0).id_detailkategori;
-//                        alamat5     = model.perbankan.get(0).alamat;
-//                        latitutde5  = model.perbankan.get(0).latitude;
-//                        longitude5  = model.perbankan.get(0).longitude;
                     }
                     if(new Gson().toJson(response.body().rumahsakit).length() != 2){
                         tv_rs.setText(model.rumahsakit.get(0).nama_detail);
@@ -631,9 +606,6 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(iv_rs);
                         id_rs       = model.rumahsakit.get(0).id_detailkategori;
-//                        alamat6     = model.rumahsakit.get(0).alamat;
-//                        latitutde6  = model.rumahsakit.get(0).latitude;
-//                        longitude6  = model.rumahsakit.get(0).longitude;
                     }
 
                     Log.d("coba2 berhasil", "gagal");
