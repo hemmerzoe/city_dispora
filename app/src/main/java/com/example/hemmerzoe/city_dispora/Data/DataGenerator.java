@@ -81,7 +81,7 @@ public class DataGenerator {
 
     public static List<People> getPeopleData(Context ctx) {
         List<People> items = new ArrayList<>();
-        TypedArray drw_arr = ctx.getResources().obtainTypedArray(R.array.album_name);
+        TypedArray drw_arr = ctx.getResources().obtainTypedArray(R.array.sample_images);
         String name_arr[] = ctx.getResources().getStringArray(R.array.people_names);
 
         for (int i = 0; i < drw_arr.length(); i++) {

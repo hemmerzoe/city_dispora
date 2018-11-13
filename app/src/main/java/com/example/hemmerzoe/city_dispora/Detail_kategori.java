@@ -1,6 +1,7 @@
 package com.example.hemmerzoe.city_dispora;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.ColorSpace;
@@ -43,6 +44,7 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
     Context mContext;
     DetailKategoriResponse model;
     String url;
+    ProgressDialog loading;
 
     private ActionBar actionBar;
     private TextView tv_judul,tv_deskripsi,tv_tgl,tv_alamat;
@@ -75,6 +77,7 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
         iv_foto4        = findViewById(R.id.image_4);
         iv_foto5        = findViewById(R.id.image_5);
 
+        loading = ProgressDialog.show(this, null, "Harap Tunggu...", true, false);
 
         DataDetailKategori(bundle.getString("key_iddetailkategori"));
 
@@ -92,6 +95,7 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
                 showDialogAbout();
             }
         });
+        loading.dismiss();
     }
 
     private void initToolbar() {

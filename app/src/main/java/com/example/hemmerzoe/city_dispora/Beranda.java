@@ -1,7 +1,9 @@
 package com.example.hemmerzoe.city_dispora;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Handler;
@@ -53,6 +55,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
     Call<BerandaResponse> CallBody;
     Context mContext;
     BerandaResponse model;
+    ProgressDialog loading;
 
     private ActionBar actionBar;
     private Toolbar toolbar;
@@ -148,7 +151,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
         bt_bank.setOnClickListener(this);
         bt_rs.setOnClickListener(this);
 
-
+        loading = ProgressDialog.show(this, null, "Harap Tunggu...", true, false);
 
         setSupportActionBar(toolbar);
         DataBeranda();
@@ -156,6 +159,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
         initToolbar();
         initComponent();
         initNavigationMenu();
+        loading.dismiss();
         //initComponent2();
     }
 
@@ -503,10 +507,11 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         actionBar.setTitle("Rumah Sakit");
                         return true;
                     case R.id.nav_berita:
-                        Intent berita = new Intent(Beranda.this, Activity_daftar_berita.class);
+                        Intent berita = new Intent(Beranda.this, List_berita.class);
                         startActivity(berita);
+                        return true;
                     default:
-                        Intent event = new Intent(Beranda.this, Detail_berita.class);
+                        Intent event = new Intent(Beranda.this, List_event.class);
                         startActivity(event);
                         return true;
                 }
@@ -618,5 +623,31 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                 Log.d("coba gagal", t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(Beranda.this);
+        builder.setMessage("apa anda ingin keluar aplikasi ?");
+        builder.setCancelable(true);
+        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.setPositiveButton("Ya !", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                moveTaskToBack(false);
+//                MainActivity.super.finish();
+//                  finish();
+//                MainActivity.super.onBackPressed();
+                System.exit(0);
+            }
+        });
+        android.support.v7.app.AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 }

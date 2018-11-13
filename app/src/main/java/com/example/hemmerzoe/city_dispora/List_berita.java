@@ -21,7 +21,7 @@ import com.example.hemmerzoe.city_dispora.utils.Tools;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Activity_daftar_berita extends AppCompatActivity {
+public class List_berita extends AppCompatActivity {
 
     private View parent_view;
 
@@ -33,7 +33,7 @@ public class Activity_daftar_berita extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_berita);
+        setContentView(R.layout.activity_daftar_berita);
         parent_view = findViewById(android.R.id.content);
 
         initToolbar();
@@ -42,9 +42,9 @@ public class Activity_daftar_berita extends AppCompatActivity {
 
     private void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu);
+        toolbar.setNavigationIcon(R.drawable.ic_back);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Animation");
+        getSupportActionBar().setTitle("Daftar Berita");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Tools.setSystemBarColor(this);
     }
@@ -60,7 +60,9 @@ public class Activity_daftar_berita extends AppCompatActivity {
         items.addAll(DataGenerator.getPeopleData(this));
         items.addAll(DataGenerator.getPeopleData(this));
 
-        showSingleChoiceDialog();
+        animation_type = ItemAnimation.FADE_IN;
+        setAdapter();
+       // showSingleChoiceDialog();
     }
 
     private void setAdapter() {

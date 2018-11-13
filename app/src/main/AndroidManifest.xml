@@ -42,7 +42,8 @@
         </activity>
         <activity android:name=".Detail_kategori" />
         <activity android:name=".Detail_berita" ></activity>
-        <activity android:name=".Activity_daftar_berita" ></activity>
+        <activity android:name=".List_berita" ></activity>
+        <activity android:name=".List_event" ></activity>
         <!-- android:label="profile" -->
         <!-- android:parentActivityName=".GridList"></activity> -->
         <!--

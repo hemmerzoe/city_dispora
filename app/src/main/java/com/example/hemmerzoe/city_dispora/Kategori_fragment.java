@@ -1,5 +1,6 @@
 package com.example.hemmerzoe.city_dispora;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -35,6 +36,7 @@ public class Kategori_fragment extends Fragment{
     Call<ListKategoriResponse> CallBody;
     Context mContext;
     ListKategoriResponse model;
+    ProgressDialog loading;
 
 
     private View parent_view;
@@ -55,6 +57,7 @@ public class Kategori_fragment extends Fragment{
             Bundle bundle = this.getArguments();
             listkategori = new ArrayList<>();
 
+            loading = ProgressDialog.show(getContext(), null, "Harap Tunggu...", true, false);
             DataListKategori(bundle.getString("key_idkategori"));
 
             recyclerView = (RecyclerView) parent_view.findViewById(R.id.recyclerView);
@@ -110,6 +113,7 @@ public class Kategori_fragment extends Fragment{
 //                                model.apotik.get(0).tanggal_dibuat,model.apotik.get(0).nama_gambar));
                         adapter.notifyDataSetChanged();
                         Log.d("coba2 berhasil", new Gson().toJson(response.body()));
+                        loading.dismiss();
                     }
                 }
 
