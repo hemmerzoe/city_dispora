@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/image_24"
+                    android:src="@drawable/blank"
                     android:id="@+id/image_event"/>
 
             </RelativeLayout>
