@@ -79,22 +79,22 @@ public class KategoriAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             view.name.setText(obj.getNama_detail());
             view.brief.setText(obj.getTanggal_dibuat());
             if(obj.getId_kategori().equals("1")) {
-                url = "http://smart.pasuruankota.go.id/_upload/apotik/" + obj.getNama_gambar();
+                url = "http://data.pasuruankota.go.id/_upload/dispora/apotik/" + obj.getNama_gambar();
             }
             if(obj.getId_kategori().equals("2")) {
-                url = "http://smart.pasuruankota.go.id/_upload/wisata/" + obj.getNama_gambar();
+                url = "http://data.pasuruankota.go.id/_upload/dispora/wisata/" + obj.getNama_gambar();
             }
             if(obj.getId_kategori().equals("3")) {
-                url = "http://smart.pasuruankota.go.id/_upload/hotel/" + obj.getNama_gambar();
+                url = "http://data.pasuruankota.go.id/_upload/dispora/hotel/" + obj.getNama_gambar();
             }
             if(obj.getId_kategori().equals("4")) {
-                url = "http://smart.pasuruankota.go.id/_upload/kuliner/" + obj.getNama_gambar();
+                url = "http://data.pasuruankota.go.id/_upload/dispora/kuliner/" + obj.getNama_gambar();
             }
             if(obj.getId_kategori().equals("5")) {
-                url = "http://smart.pasuruankota.go.id/_upload/perbankan/" + obj.getNama_gambar();
+                url = "http://data.pasuruankota.go.id/_upload/dispora/perbankan/" + obj.getNama_gambar();
             }
             if(obj.getId_kategori().equals("6")) {
-                url = "http://smart.pasuruankota.go.id/_upload/rumahsakit/" + obj.getNama_gambar();
+                url = "http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/" + obj.getNama_gambar();
             }
             Glide.with(ctx)
                     .load(url)

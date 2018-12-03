@@ -54,6 +54,7 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
     private ImageView iv_foto,iv_foto2,iv_foto3,iv_foto4,iv_foto5;
     public GoogleMap mMap;
     public String nama_marker;
+    private static String [] url_gambar;
 //    private Double latitude;
 //    private Double longitude;
 
@@ -89,12 +90,41 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
                 .findFragmentById(R.id.mapPlaces);
         mapFragment.getMapAsync(this);
 
-        ((ImageView) findViewById(R.id.image_1)).setOnClickListener(new View.OnClickListener() {
+        iv_foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogAbout();
+                showDialogAbout(url_gambar[0]);
             }
         });
+
+        iv_foto2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogAbout(url_gambar[1]);
+            }
+        });
+
+        iv_foto3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogAbout(url_gambar[2]);
+            }
+        });
+
+        iv_foto4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogAbout(url_gambar[3]);
+            }
+        });
+
+        iv_foto5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogAbout(url_gambar[4]);
+            }
+        });
+
         loading.dismiss();
     }
 
@@ -159,308 +189,341 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
                     actionBar.setTitle(model.detailkategori.get(0).nama_detail);
 
                     if(model.detailkategori.get(0).id_kategori.equals("1")){
+                        url_gambar = new String[model.gambar.size()];
                         for (int i=0; i < model.gambar.size();i++){
                             if (i == 0){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(0).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(0).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto);
                                 iv_foto.setVisibility(iv_foto.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(0).nama_gambar;
                             }
                             if (i == 1){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(1).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(1).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto2);
                                 iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(1).nama_gambar;
                             }
                             if (i == 2){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(2).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(2).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto3);
                                 iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(2).nama_gambar;
                             }
                             if (i == 3){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(3).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(3).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto4);
                                 iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(3).nama_gambar;
                             }
                             if (i == 4){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(4).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(4).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto5);
                                 iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(4).nama_gambar;
                             }
                         }
-                        url = "http://smart.pasuruankota.go.id/_upload/apotik/"+model.gambar.get(0).nama_gambar;
+                        url = "http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("2")){
+                        url_gambar = new String[model.gambar.size()];
                         for (int i=0; i < model.gambar.size();i++){
                             if (i == 0){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(0).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(0).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto);
                                 iv_foto.setVisibility(iv_foto.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(0).nama_gambar;
                             }
                             if (i == 1){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(1).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(1).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto2);
                                 iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(1).nama_gambar;
                             }
                             if (i == 2){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(2).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(2).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto3);
                                 iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(2).nama_gambar;
                             }
                             if (i == 3){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(3).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(3).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto4);
                                 iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(3).nama_gambar;
                             }
                             if (i == 4){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(4).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(4).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto5);
                                 iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(4).nama_gambar;
                             }
                         }
-                        url = "http://smart.pasuruankota.go.id/_upload/wisata/"+model.gambar.get(0).nama_gambar;
+                        url = "http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("3")){
+                        url_gambar = new String[model.gambar.size()];
                         for (int i=0; i < model.gambar.size();i++){
                             if (i == 0){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(0).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(0).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto);
                                 iv_foto.setVisibility(iv_foto.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(0).nama_gambar;
                             }
                             if (i == 1){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(1).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(1).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto2);
                                 iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(1).nama_gambar;
                             }
                             if (i == 2){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(2).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(2).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto3);
                                 iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(2).nama_gambar;
                             }
                             if (i == 3){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(3).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(3).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto4);
                                 iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(3).nama_gambar;
                             }
                             if (i == 4){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(4).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(4).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto5);
                                 iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(4).nama_gambar;
                             }
                         }
-                        url = "http://smart.pasuruankota.go.id/_upload/hotel/"+model.gambar.get(0).nama_gambar;
+                        url = "http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("4")){
+                        url_gambar = new String[model.gambar.size()];
                         for (int i=0; i < model.gambar.size();i++){
                             if (i == 0){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(0).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(0).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto);
                                 iv_foto.setVisibility(iv_foto.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(0).nama_gambar;
                             }
                             if (i == 1){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(1).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(1).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto2);
                                 iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(1).nama_gambar;
                             }
                             if (i == 2){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(2).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(2).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto3);
                                 iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(2).nama_gambar;
                             }
                             if (i == 3){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(3).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(3).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto4);
                                 iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(3).nama_gambar;
                             }
                             if (i == 4){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(4).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(4).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto5);
                                 iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(4).nama_gambar;
                             }
                         }
-                        url = "http://smart.pasuruankota.go.id/_upload/kuliner/"+model.gambar.get(0).nama_gambar;
+                        url = "http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("5")){
+                        url_gambar = new String[model.gambar.size()];
                         for (int i=0; i < model.gambar.size();i++){
                             if (i == 0){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(0).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(0).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto);
                                 iv_foto.setVisibility(iv_foto.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(0).nama_gambar;
                             }
                             if (i == 1){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(1).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(1).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto2);
                                 iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(1).nama_gambar;
                             }
                             if (i == 2){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(2).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(2).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto3);
                                 iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(2).nama_gambar;
                             }
                             if (i == 3){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(3).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(3).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto4);
                                 iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(3).nama_gambar;
                             }
                             if (i == 4){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(4).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(4).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto5);
                                 iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(4).nama_gambar;
                             }
                         }
-                        url = "http://smart.pasuruankota.go.id/_upload/perbankan/"+model.gambar.get(0).nama_gambar;
+                        url = "http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.gambar.get(0).nama_gambar;
                     }
                     if(model.detailkategori.get(0).id_kategori.equals("6")){
+                        url_gambar = new String[model.gambar.size()];
                         for (int i=0; i < model.gambar.size();i++){
                             if (i == 0){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(0).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(0).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto);
                                 iv_foto.setVisibility(iv_foto.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(0).nama_gambar;
                             }
                             if (i == 1){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(1).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/apotik/rumahsakit/"+model.gambar.get(1).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto2);
                                 iv_foto2.setVisibility(iv_foto2.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(1).nama_gambar;
                             }
                             if (i == 2){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(2).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(2).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto3);
                                 iv_foto3.setVisibility(iv_foto3.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(2).nama_gambar;
                             }
                             if (i == 3){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(3).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(3).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto4);
                                 iv_foto4.setVisibility(iv_foto4.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(3).nama_gambar;
                             }
                             if (i == 4){
                                 Glide.with(Detail_kategori.this)
-                                        .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(4).nama_gambar)
+                                        .load("http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(4).nama_gambar)
                                         .fitCenter() // menyesuaikan ukuran imageview
                                         .crossFade() // animasi
                                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                                         .into(iv_foto5);
                                 iv_foto5.setVisibility(iv_foto5.VISIBLE);
+                                url_gambar[i] = "http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(4).nama_gambar;
                             }
                         }
-                        url = "http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.gambar.get(0).nama_gambar;
+                        url = "http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.gambar.get(0).nama_gambar;
                     }
-
-
-
                     Glide.with(Detail_kategori.this)
                             .load(url)
                             .fitCenter() // menyesuaikan ukuran imageview
@@ -490,13 +553,24 @@ public class Detail_kategori extends AppCompatActivity implements OnMapReadyCall
 //        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(upd,12));
     }
 
-    private void showDialogAbout() {
+    private void showDialogAbout(String url_gambar) {
+//    private void showDialogAbout() {
+        ImageView gambardialog;
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
         dialog.setContentView(R.layout.dialog_image);
+        gambardialog = dialog.findViewById(R.id.dialog_gambar);
+//        gambardialog.setBackgroundResource(R.drawable.image_7);
+//        gambardialog.setImageResource(R.drawable.image_7);
+        Glide.with(Detail_kategori.this)
+                .load(url_gambar)
+                .fitCenter() // menyesuaikan ukuran imageview
+                .crossFade() // animasi
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(gambardialog);
         dialog.setCancelable(true);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
+//        Toast.makeText(Detail_kategori.this, "masuk"+nama_gambar, Toast.LENGTH_SHORT).show();
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.WRAP_CONTENT;

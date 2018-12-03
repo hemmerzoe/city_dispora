@@ -13,6 +13,7 @@ public class BerandaResponse {
     public ArrayList<perbankan> perbankan;
     public ArrayList<rumahsakit> rumahsakit;
 
+
     public class berita
     {
         public String id_berita,judul_berita;
@@ -48,4 +49,5 @@ public class BerandaResponse {
     {
         public String id_detailkategori,nama_detail,tanggal_dibuat,nama_gambar,id_kategori;
     }
+
 }

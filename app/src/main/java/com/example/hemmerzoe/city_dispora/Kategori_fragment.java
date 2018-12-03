@@ -32,6 +32,7 @@ import retrofit.Callback;
 import retrofit.Response;
 
 public class Kategori_fragment extends Fragment{
+
     ApiService service;
     Call<ListKategoriResponse> CallBody;
     Context mContext;
@@ -109,6 +110,7 @@ public class Kategori_fragment extends Fragment{
                                     model.listkategori.get(i).nama_detail,model.listkategori.get(i).tanggal_dibuat,
                                     model.listkategori.get(i).nama_gambar,model.listkategori.get(i).id_kategori));
                         }
+                     //   Toast.makeText(Kategori_fragment.this, " "+" "+listkategori, Toast.LENGTH_SHORT).show();
 //                        listkategori.add(new ListKategoriModel(model.apotik.get(0).id_detailkategori,model.apotik.get(0).nama_detail,
 //                                model.apotik.get(0).tanggal_dibuat,model.apotik.get(0).nama_gambar));
                         adapter.notifyDataSetChanged();

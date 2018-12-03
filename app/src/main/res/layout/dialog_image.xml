@@ -28,10 +28,10 @@
             app:srcCompat="@drawable/ic_close" />
 
         <ImageView
-
+            android:id="@+id/dialog_gambar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/image_5" />
+            android:src="@drawable/blank" />
     </RelativeLayout>
 
 

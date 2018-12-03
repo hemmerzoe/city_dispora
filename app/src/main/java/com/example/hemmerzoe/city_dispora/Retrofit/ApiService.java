@@ -1,7 +1,9 @@
 package com.example.hemmerzoe.city_dispora.Retrofit;
 
 import com.example.hemmerzoe.city_dispora.Response.BerandaResponse;
+import com.example.hemmerzoe.city_dispora.Response.DetailEventResponse;
 import com.example.hemmerzoe.city_dispora.Response.DetailKategoriResponse;
+import com.example.hemmerzoe.city_dispora.Response.EventResponse;
 import com.example.hemmerzoe.city_dispora.Response.ListKategoriResponse;
 
 import retrofit.Call;
@@ -22,11 +24,20 @@ public interface ApiService {
     @GET("beranda")
     Call<BerandaResponse> berandaRequest();
 
+    @GET("berandaevent")
+    Call<EventResponse> berandaeventRequest();
+
     @GET("detailkategori")
     Call<DetailKategoriResponse> detailkategoriRequest(@Query("id_detailkategori") String id_detailkategori);
 
     @GET("listkategori")
     Call<ListKategoriResponse> listkategoriRequest(@Query("id_kategori") String id_kategori);
+
+    @GET("event")
+    Call<EventResponse> eventRequest();
+
+    @GET("detailevent")
+    Call<DetailEventResponse> eventRequestID(@Query("id_event") String id_event);
 
 //    @FormUrlEncoded
 //    @POST("registrasipengguna")

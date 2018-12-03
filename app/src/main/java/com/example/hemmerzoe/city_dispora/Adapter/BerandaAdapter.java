@@ -54,7 +54,7 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.ViewHold
 //        if(position == 0) {
             holder.tv_judul.setText("name: " + beranda.getNama_detail());
             holder.tv_deskripsi.setText("nim: " + beranda.getTanggal_dibuat());
-            url = "http://192.168.1.101/webcity_dispora/_upload/apotik/" + beranda.getNama_gambar();
+            url = "http://data.pasuruankota.go.id/_upload/dispora/apotik/" + beranda.getNama_gambar();
             Glide.with(context)
                     .load(url)
                     .fitCenter() // menyesuaikan ukuran imageview

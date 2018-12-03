@@ -2,9 +2,12 @@ package com.example.hemmerzoe.city_dispora;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.app.usage.UsageEvents;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -37,13 +40,19 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.hemmerzoe.city_dispora.Adapter.KategoriAdapter;
 import com.example.hemmerzoe.city_dispora.Model.Image;
+import com.example.hemmerzoe.city_dispora.Model.ModelEvent;
 import com.example.hemmerzoe.city_dispora.Response.BerandaResponse;
+import com.example.hemmerzoe.city_dispora.Response.EventResponse;
 import com.example.hemmerzoe.city_dispora.Retrofit.ApiService;
 import com.example.hemmerzoe.city_dispora.Retrofit.ServiceGenerator;
 import com.example.hemmerzoe.city_dispora.utils.Tools;
 import com.google.gson.Gson;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit.Call;
@@ -53,9 +62,13 @@ import retrofit.Response;
 public class Beranda extends AppCompatActivity implements View.OnClickListener {
     ApiService service;
     Call<BerandaResponse> CallBody;
+    Call<EventResponse> CallBody2;
     Context mContext;
     BerandaResponse model;
+    EventResponse model2;
     ProgressDialog loading;
+
+//    ArrayList<EventResponse.event> events;
 
     private ActionBar actionBar;
     private Toolbar toolbar;
@@ -73,36 +86,21 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
 
     private TextView tv_apotik,tv_wisata,tv_hotel,tv_kuliner,tv_bank,tv_rs;
     private TextView tv_tglapotik,tv_tglwisata,tv_tglhotel,tv_tglkuliner,tv_tglbank,tv_tglrs;
-    private ImageView iv_apotik,iv_wisata,iv_hotel,iv_kuliner,iv_bank,iv_rs;
+    private ImageView iv_apotik,iv_wisata,iv_hotel,iv_kuliner,iv_bank,iv_rs, pager;
     private ImageButton bt_apotik,bt_wisata,bt_hotel,bt_kuliner,bt_bank,bt_rs;
     private String id_apotik,id_wisata,id_hotel,id_kuliner,id_bank,id_rs;
 //    private String latitutde,longitude,latitutde2,longitude2,latitutde3,longitude3,latitutde4,
 //            longitude4,latitutde5,longitude5,latitutde6,longitude6;
 //    private String alamat,alamat2,alamat3,alamat4,alamat5,alamat6;
-
-    private static int[] array_image_place = {
-            R.drawable.image_2,
-            R.drawable.image_3,
-            R.drawable.image_4,
-            R.drawable.image_5,
-            R.drawable.image_6,
-    };
-
-    private static String[] array_title_place = {
-            "Dui fringilla ornare finibus, orci odio",
-            "Mauris sagittis non elit quis fermentum",
-            "Mauris ultricies augue sit amet est sollicitudin",
-            "Suspendisse ornare est ac auctor pulvinar",
-            "Vivamus laoreet aliquam ipsum eget pretium",
-    };
-
-    private static String[] array_brief_place = {
-            "Foggy Hill",
-            "The Backpacker",
-            "River Forest",
-            "Mist Mountain",
-            "Side Park",
-    };
+    public TextView textview_gambar;
+    //jadi itu string array nilainya harus static array dan harus diisi dengan nilai awal terlebih dahulu;
+    //jika hanya di definisikan saja tanpa ada nilai yang pasti dia akan force close
+    //jadi nilai yang didefinisikan tidak boleh kurang dari nilai array yang didefinisikan di dalam api karena nanti force close
+  //  private static String [] events;
+    public static String [] deskripsi;
+    public static String[] events;
+    public static String[] id_events;
+    private static String [] nama_gambar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +108,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar_kategori = (Toolbar) findViewById(R.id.toolbar);
+
 
 //        judul
         tv_apotik   = findViewById(R.id.judul_apotik);
@@ -154,14 +153,20 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
         loading = ProgressDialog.show(this, null, "Harap Tunggu...", true, false);
 
         setSupportActionBar(toolbar);
+//        bagian_atas();
         DataBeranda();
+
 //        navigationView_kategori = (NavigationView) findViewById(R.id.nav_view);
         initToolbar();
         initComponent();
         initNavigationMenu();
         loading.dismiss();
+        // Toast.makeText(Beranda.this, events[0], Toast.LENGTH_SHORT).show();
+
         //initComponent2();
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -252,47 +257,99 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
         Tools.setSystemBarColor(this);
     }
 
+
     private void initComponent() {
-        layout_dots = (LinearLayout) findViewById(R.id.layout_dots);
-        viewPager = (ViewPager) findViewById(R.id.pager);
-        adapterImageSlider = new AdapterImageSlider(this, new ArrayList<Image>());
-
-        final List<Image> items = new ArrayList<>();
-        for (int i = 0; i < array_image_place.length; i++) {
-            Image obj = new Image();
-            obj.image = array_image_place[i];
-            obj.imageDrw = getResources().getDrawable(obj.image);
-            obj.name = array_title_place[i];
-            obj.brief = array_brief_place[i];
-            items.add(obj);
-        }
-//
-        adapterImageSlider.setItems(items);
-        viewPager.setAdapter(adapterImageSlider);
-//
-        // displaying selected image first
-        viewPager.setCurrentItem(0);
-        addBottomDots(layout_dots, adapterImageSlider.getCount(), 0);
-        ((TextView) findViewById(R.id.title)).setText(items.get(0).name);
-        ((TextView) findViewById(R.id.brief)).setText(items.get(0).brief);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        service = ServiceGenerator.createService(ApiService.class);
+        CallBody2 = service.berandaeventRequest();
+        CallBody2.enqueue(new Callback<EventResponse>() {
             @Override
-            public void onPageScrolled(int pos, float positionOffset, int positionOffsetPixels) {
-            }
+            public void onResponse(Response<EventResponse> response) {
+                model2 = response.body();
+                if (model2.error) {
+                    Toast.makeText(Beranda.this, "login gagal", Toast.LENGTH_SHORT).show();
+                    Log.d("coba error", new Gson().toJson(response.body()));
+                }
+                if (!model2.error) {
+                    events = new String[model2.event.size()];
+                    deskripsi = new String[model2.event.size()];
+                    id_events = new String[model2.event.size()];
+                    nama_gambar = new String[model2.event.size()];
+                    for (int i = 0; i <model2.event.size(); i++) {
+                        events[i] = model2.event.get(i).judul_event;
+                        id_events[i] =model2.event.get(i).id_event;
+                        nama_gambar[i]=model2.event.get(i).nama_gambar;
+//                        id_event[i]=model2.event.get(i).id_event;
+//                        array_image_place[i] = model2.gambar.get(i).nama_gambar;
+                     //   ((TextView) findViewById(R.id.title)).setText(model2.event.get(0).judul_event);
+//                        Glide.with(Beranda.this)
+//                                .load("http://smart.pasuruankota.go.id/_upload/event/"+model2.gambar.get(0).nama_gambar)
+//                                .fitCenter() // menyesuaikan ukuran imageview
+//                                .crossFade() // animasi
+//                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                                .into(pager);
+                    }
+//                    Toast.makeText(Beranda.this, deskripsi[0],Toast.LENGTH_SHORT).show();
+                    layout_dots = (LinearLayout) findViewById(R.id.layout_dots);
+                    viewPager = (ViewPager) findViewById(R.id.pager);
+                    adapterImageSlider = new AdapterImageSlider(Beranda.this, new ArrayList<Image>());
 
-            @Override
-            public void onPageSelected(int pos) {
-                ((TextView) findViewById(R.id.title)).setText(items.get(pos).name);
-                ((TextView) findViewById(R.id.brief)).setText(items.get(pos).brief);
-                addBottomDots(layout_dots, adapterImageSlider.getCount(), pos);
-            }
-            //
+                    final List<Image> items = new ArrayList<>();
+
+                    for (int i = 0; i <events.length; i++) {
+                        Image obj = new Image();
+//                        obj.image = array_image_place[i];
+//                        obj.imageDrw= getResources().getDrawable(obj.image);
+                        obj.name = events[i];
+                        obj.brief = deskripsi[i];
+                        items.add(obj);
+                    }
+                    adapterImageSlider.setItems(items);
+                    viewPager.setAdapter(adapterImageSlider);
+
+                    viewPager.setCurrentItem(0);
+                    addBottomDots(layout_dots, adapterImageSlider.getCount(), 0);
+                    ((TextView) findViewById(R.id.title)).setText(items.get(0).name);
+//                    ((TextView) findViewById(R.id.brief)).setText(items.get(0).brief);
+                    viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                        @Override
+                        public void onPageScrolled(int pos, float positionOffset, int positionOffsetPixels) {
+                        }
+
+                        @Override
+                        public void onPageSelected(final int pos) {
+                            TextView selengkapnya;
+                            selengkapnya = findViewById(R.id.brief);
+                            ((TextView) findViewById(R.id.title)).setText(items.get(pos).name);
+//                            ((TextView) findViewById(R.id.brief)).setText(items.get(pos).brief);
+                            addBottomDots(layout_dots, adapterImageSlider.getCount(), pos);
+                            selengkapnya.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent i = new Intent(view.getContext(), Detail_event.class);
+                                    i.putExtra("key_id_event",id_events[pos]);
+                                    view.getContext().startActivity(i);
+//                            Toast.makeText(view.getContext(), "detail"+id_events[pos], Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                        //
 //            @Override
-            public void onPageScrollStateChanged(int state) {
+                        public void onPageScrollStateChanged(int state) {
+                        }
+                    });
+
+                    startAutoSlider(adapterImageSlider.getCount());
+
+                    Log.d("coba2 berhasil", "gagal");
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(Beranda.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("coba gagal", t.getMessage());
             }
         });
-
-        startAutoSlider(adapterImageSlider.getCount());
     }
 
     private void addBottomDots(LinearLayout layout_dots, int size, int current) {
@@ -312,7 +369,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
 
         if (dots.length > 0) {
             dots[current].setImageResource(R.drawable.shape_circle);
-            dots[current].setColorFilter(ContextCompat.getColor(this, R.color.grey_40), PorterDuff.Mode.SRC_ATOP);
+            dots[current].setColorFilter(ContextCompat.getColor(this, R.color.blue_700), PorterDuff.Mode.SRC_ATOP);
         }
     }
     //
@@ -351,7 +408,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    private static class AdapterImageSlider extends PagerAdapter {
+    public static class AdapterImageSlider extends PagerAdapter {
 
         private Activity act;
         private List<Image> items;
@@ -396,10 +453,15 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
             final Image o = items.get(position);
             LayoutInflater inflater = (LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View v = inflater.inflate(R.layout.item_slider_image, container, false);
-
-            ImageView image = (ImageView) v.findViewById(R.id.image);
+            ImageView image = (ImageView) v.findViewById(R.id.image_slider);
             MaterialRippleLayout lyt_parent = (MaterialRippleLayout) v.findViewById(R.id.lyt_parent);
-            Tools.displayImageOriginal(act, image, o.image);
+//            Tools.displayImageOriginal(act, image, o.image);
+            Glide.with(act.getBaseContext())
+                    .load("http://data.pasuruankota.go.id/_upload/dispora/event/"+nama_gambar[position])
+                    .fitCenter() // menyesuaikan ukuran imageview
+                    .crossFade() // animasi
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(image);
             lyt_parent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
@@ -550,7 +612,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_apotik.setText(model.apotik.get(0).nama_detail);
                         tv_tglapotik.setText(model.apotik.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://smart.pasuruankota.go.id/_upload/apotik/"+model.apotik.get(0).nama_gambar)
+                                .load("http://data.pasuruankota.go.id/_upload/dispora/apotik/"+model.apotik.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -561,7 +623,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_wisata.setText(model.wisata.get(0).nama_detail);
                         tv_tglwisata.setText(model.wisata.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://smart.pasuruankota.go.id/_upload/wisata/"+model.wisata.get(0).nama_gambar)
+                                .load("http://data.pasuruankota.go.id/_upload/dispora/wisata/"+model.wisata.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -572,7 +634,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_hotel.setText(model.hotel.get(0).nama_detail);
                         tv_tglhotel.setText(model.hotel.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://smart.pasuruankota.go.id/_upload/hotel/"+model.hotel.get(0).nama_gambar)
+                                .load("http://data.pasuruankota.go.id/_upload/dispora/hotel/"+model.hotel.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -583,7 +645,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_kuliner.setText(model.kuliner.get(0).nama_detail);
                         tv_tglkuliner.setText(model.kuliner.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://smart.pasuruankota.go.id/_upload/kuliner/"+model.kuliner.get(0).nama_gambar)
+                                .load("http://data.pasuruankota.go.id/_upload/dispora/kuliner/"+model.kuliner.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -594,7 +656,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_bank.setText(model.perbankan.get(0).nama_detail);
                         tv_tglbank.setText(model.perbankan.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://smart.pasuruankota.go.id/_upload/perbankan/"+model.perbankan.get(0).nama_gambar)
+                                .load("http://data.pasuruankota.go.id/_upload/dispora/perbankan/"+model.perbankan.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -605,7 +667,7 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
                         tv_rs.setText(model.rumahsakit.get(0).nama_detail);
                         tv_tglrs.setText(model.rumahsakit.get(0).tanggal_dibuat);
                         Glide.with(Beranda.this)
-                                .load("http://smart.pasuruankota.go.id/_upload/rumahsakit/"+model.rumahsakit.get(0).nama_gambar)
+                                .load("http://data.pasuruankota.go.id/_upload/dispora/rumahsakit/"+model.rumahsakit.get(0).nama_gambar)
                                 .fitCenter() // menyesuaikan ukuran imageview
                                 .crossFade() // animasi
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -625,9 +687,41 @@ public class Beranda extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
+    public void bagian_atas ()
+    {
+        service = ServiceGenerator.createService(ApiService.class);
+        CallBody2 = service.eventRequest();
+        CallBody2.enqueue(new Callback<EventResponse>() {
+            @Override
+            public void onResponse(Response<EventResponse> response) {
+                model2 = response.body();
+                if (model2.error) {
+                    Toast.makeText(Beranda.this, "login gagal", Toast.LENGTH_SHORT).show();
+                    Log.d("coba error", new Gson().toJson(response.body()));
+                }
+                if (!model2.error) {
+                    for (int i = 0; i <model2.event.size(); i++) {
+                        events[i] = model2.event.get(i).judul_event;
+                        deskripsi[i] =model2.event.get(i).deskripsi;
+//                        nama_gambar[i]=model2.event.get(i).tanggal_perhelatan;
+                       // ((TextView) findViewById(R.id.title)).setText(model2.event.get(0).judul_event);
+                        Toast.makeText(Beranda.this,  "coba"+model2.event.get(i).id_event , Toast.LENGTH_SHORT).show();
+                    }
+                    Log.d("coba2 berhasil", "gagal");
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(Beranda.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("coba gagal", t.getMessage());
+            }
+        });
+    }
+
     @Override
     public void onBackPressed(){
-        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(Beranda.this);
+        final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(Beranda.this,R.style.AlertDialog);
         builder.setMessage("apa anda ingin keluar aplikasi ?");
         builder.setCancelable(true);
         builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
